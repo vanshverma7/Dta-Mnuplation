@@ -1,0 +1,7 @@
+1. Task planning, allocation & NDP ownership (per Murat's suggestion)
+Murat flagged that we should have a clearer structure around how my tasks are split between NDP and JDT. Alongside that, I've been looking to formalise my ownership of NDP — both on the development and operations side. Would love to align on how the task split should look as I take on more of those responsibilities.
+
+2. Update on working with Ike (P&C project)
+As we discussed previously, I've had ongoing communication challenges with Ike. After two weeks of trying to work through it, things are still difficult — he tends to defer to being occupied with data ingestion or JDT work.
+
+Murat and I have agreed to set up 2–3 weekly syncs between me and Ike to keep him in the loop on development. However, my concern is that these are turning into one-sided explanation sessions rather than collaborative development discussions. We're currently adapting and building out a new structure for P&C, and while I don't mind explaining things, there's been little to no progress from Ike's side after our sessions — which is making it hard to move forward effectively.
