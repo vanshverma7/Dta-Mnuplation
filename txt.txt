@@ -1,0 +1,10 @@
+HI Vash,
+Hope you had a good week. 
+
+Low priority, you mentioned you were looking to re-write code using AI to help us reproduce the analytical work for example in the new data environments.
+Just wondering how it’s going? And if you have anything to share on this processes? Last year, for a course I am on, I wrote a paper for one of the module on this as an ‘AI use case opportunity’ – so I’m super interested in how you’re getting on! Context on my module is that it was about identifying use-cases and I was focusing on Nest’s need for Explainability of AI and our internal need for Quality Assurance.
+
+Have a great weekend.
+Thanks, Sam
+
+PS If you are interested, my current module is about AI Policy. I have been helping on the writing of the AI Guidelines (not yet policy); and the guidelines are still open to being developed (great!)…. So if you have any views on the Guidelines I welcome your views/feedback!  
