@@ -1,0 +1,3 @@
+endpoint_id	dataset_id	endpoint_name	endpoint_path	response_root_path
+15	73	itr_skill_and_qualification_temp_skills		$.itrent.Person
+16	74	itr_skill_and_qualification_temp_qualifications		$.itrent.Person
