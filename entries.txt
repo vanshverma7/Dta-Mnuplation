@@ -1,0 +1,47 @@
+-- Dataset for Skills temp
+INSERT INTO metahub.catalog_dataset
+(source_system_id, target_system_id, layer_id, dataset_name, source_entity_name,
+ target_format, target_path, batch_group, business_key_columns,
+ is_initial_load_required, is_truncate_on_full_load, is_active, load_type_id)
+VALUES
+(
+    (SELECT source_system_id FROM metahub.master_system WHERE system_name = 'itrent'),
+    (SELECT source_system_id FROM metahub.master_system WHERE system_name = 'Landing Zone'),
+    2,
+    'itr_skill_and_qualification_temp_skills',
+    'skill_and_qualification',
+    'parquet',
+    'vansh-test/itrent/corp/itr_skill_and_qualification_temp_skills',
+    'test',
+    'person_id',
+    1, 0, 1,
+    (SELECT load_type_id FROM metahub.master_load_type WHERE load_type_code = 'full')
+);
+
+-- Dataset for Qualifications temp
+INSERT INTO metahub.catalog_dataset
+(source_system_id, target_system_id, layer_id, dataset_name, source_entity_name,
+ target_format, target_path, batch_group, business_key_columns,
+ is_initial_load_required, is_truncate_on_full_load, is_active, load_type_id)
+VALUES
+(
+    (SELECT source_system_id FROM metahub.master_system WHERE system_name = 'itrent'),
+    (SELECT source_system_id FROM metahub.master_system WHERE system_name = 'Landing Zone'),
+    2,
+    'itr_skill_and_qualification_temp_qualifications',
+    'skill_and_qualification',
+    'parquet',
+    'vansh-test/itrent/corp/itr_skill_and_qualification_temp_qualifications',
+    'test',
+    'person_id',
+    1, 0, 1,
+    (SELECT load_type_id FROM metahub.master_load_type WHERE load_type_code = 'full')
+);
+
+
+SELECT dataset_id, dataset_name 
+FROM metahub.catalog_dataset
+WHERE dataset_name IN (
+    'itr_skill_and_qualification_temp_skills',
+    'itr_skill_and_qualification_temp_qualifications'
+);
