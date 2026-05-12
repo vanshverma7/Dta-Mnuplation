@@ -38,10 +38,33 @@ VALUES
     (SELECT load_type_id FROM metahub.master_load_type WHERE load_type_code = 'full')
 );
 
-
+------------------------------------------
 SELECT dataset_id, dataset_name 
 FROM metahub.catalog_dataset
 WHERE dataset_name IN (
     'itr_skill_and_qualification_temp_skills',
     'itr_skill_and_qualification_temp_qualifications'
 );
+
+--------------------------------------------
+
+
+-- Endpoint for temp_skills (dataset_id = 73)
+INSERT INTO metahub.catalog_api_endpoint
+(dataset_id, endpoint_name, endpoint_path, http_method, 
+ response_root_path, incremental_strategy, is_active)
+VALUES
+(73, 'itr_skill_and_qualification_temp_skills', 
+ '', 'GET', '$.itrent.Person', 'full', 1);
+
+-- Endpoint for temp_qualifications (dataset_id = 74)
+INSERT INTO metahub.catalog_api_endpoint
+(dataset_id, endpoint_name, endpoint_path, http_method,
+ response_root_path, incremental_strategy, is_active)
+VALUES
+(74, 'itr_skill_and_qualification_temp_qualifications',
+ '', 'GET', '$.itrent.Person', 'full', 1);
+-----------------------------------------------
+SELECT endpoint_id, dataset_id, endpoint_name, endpoint_path, response_root_path
+FROM metahub.catalog_api_endpoint
+WHERE dataset_id IN (73, 74);
