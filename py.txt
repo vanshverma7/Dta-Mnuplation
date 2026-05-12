@@ -1,0 +1,84 @@
+import json
+import pandas as pd
+from pyspark.sql import SparkSession
+from pyspark.sql.types import *
+
+# ADF passes these as parameters
+storage_account  = dbutils.widgets.get("storage_account")
+container        = dbutils.widgets.get("container")
+target_directory = dbutils.widgets.get("target_directory")
+source_url       = dbutils.widgets.get("source_url")
+
+# Read JSON from mock server
+import urllib.request
+with urllib.request.urlopen(source_url) as response:
+    raw = json.loads(response.read())
+
+# Flatten Person[] x Skills[] x Subjects[]
+rows = []
+for person in raw["itrent"]["Person"]:
+    person_id    = person.get("PersonID")
+    skills       = person.get("Skills", [])
+    qual         = person.get("Qualifications", {})
+    subjects     = qual.get("Subjects", [])
+
+    # One row per skill
+    for skill in skills:
+        rows.append({
+            "person_id":            person_id,
+            "record_type":          "skill",
+            "skill_name":           skill.get("SkillName"),
+            "skill_set":            skill.get("SkillSet"),
+            "skill_start_date":     skill.get("SkillStartDate"),
+            "skill_expiry_date":    skill.get("SkillExpiryDate"),
+            "skill_review_date":    skill.get("SkillReviewDate"),
+            "skill_score":          skill.get("SkillScore"),
+            "skill_score_eff_date": skill.get("SkillScoreEffDate"),
+            "skill_auth_status":    skill.get("SkillAuthStatus"),
+            "subject_name":         None,
+            "type_name":            None,
+            "level":                None,
+            "grade":                None,
+            "institution_type":     None,
+            "place_of_learning":    None,
+            "study_commence_date":  None,
+            "study_expected_date":  None,
+            "date_obtained":        None,
+            "valid_until":          None,
+            "qual_auth_status":     None
+        })
+
+    # One row per subject/qualification
+    for subject in subjects:
+        rows.append({
+            "person_id":            person_id,
+            "record_type":          "qualification",
+            "skill_name":           None,
+            "skill_set":            None,
+            "skill_start_date":     None,
+            "skill_expiry_date":    None,
+            "skill_review_date":    None,
+            "skill_score":          None,
+            "skill_score_eff_date": None,
+            "skill_auth_status":    None,
+            "subject_name":         subject.get("SubjectName"),
+            "type_name":            qual.get("Types", {}).get("TypeName"),
+            "level":                qual.get("Level"),
+            "grade":                qual.get("Grade"),
+            "institution_type":     qual.get("InstitutionType"),
+            "place_of_learning":    qual.get("PlaceOfLearning"),
+            "study_commence_date":  qual.get("StudyCommenceDate"),
+            "study_expected_date":  qual.get("StudyExpectedDate"),
+            "date_obtained":        qual.get("DateObtained"),
+            "valid_until":          qual.get("ValidUntil"),
+            "qual_auth_status":     qual.get("QualAuthStatus")
+        })
+
+# Create Spark DataFrame and write parquet
+spark = SparkSession.builder.getOrCreate()
+df = spark.createDataFrame(rows)
+
+output_path = f"abfss://{container}@{storage_account}.dfs.core.windows.net/{target_directory}"
+df.coalesce(1).write.mode("overwrite").parquet(output_path)
+
+print(f"Written {len(rows)} rows to {output_path}")
