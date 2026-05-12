@@ -37,4 +37,23 @@ Update ls_databricks in ADF
 Go to Manage → Linked services → ls_databricks → Edit and update these fields:
 FieldValueDomainhttps://adb-3673071858246932.12.azuredatabricks.netWorkspace resource ID/subscriptions/e55260ce-8396-4664-9b00-9fb5378757e3/resourceGroups/rg-nest-dp-dev-uks-01/providers/Microsoft.Databricks/workspaces/dbw-nest-dp-dev-uks-01AuthenticationMSIExisting cluster ID0512-122439-jtchj7am
 Click Test connection — tell me the result.
+------------------------------------
 
+#json
+{
+    "name": "abc",
+    "properties": {
+        "annotations": [],
+        "type": "AzureDatabricks",
+        "typeProperties": {
+            "domain": "https://adb-3673071858246932.12.azuredatabricks.net",
+            "authentication": "MSI",
+            "workspaceResourceId": "/subscriptions/e55260ce-8396-4664-9b00-9fb5378757e3/resourceGroups/rg-nest-dp-dev-uks-01/providers/Microsoft.Databricks/workspaces/dbw-nest-dp-dev-uks-01",
+            "existingClusterId": "0512-122439-jtchj7am"
+        },
+        "connectVia": {
+            "referenceName": "azir-mvn-nest-dp-uks-01",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
