@@ -21,3 +21,7 @@ Specified org ID and workspace resource ID do not refer to the same workspace.
 https://adb-3673071858246932.12.azuredatabricks.net/browse/folders/4166027217205490?o=3673071858246932
 
 /Workspace/Users/vansh.verma@nestcorporation.org.uk
+
+---------------------
+
+/subscriptions/e55260ce-8396-4664-9b00-9fb5378757e3/resourceGroups/rg-nest-dp-dev-uks-01/providers/Microsoft.Databricks/workspaces/dbw-nest-dp-dev-uks-01
