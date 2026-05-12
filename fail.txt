@@ -1,0 +1,18 @@
+Specified org ID and workspace resource ID do not refer to the same workspace. Calling endpoint failed with HttpException and response status code: BadRequest with Error Info: Processed HTTP request failed., message: Microsoft.DataTransfer.Common.Http.HttpException: Specified org ID and workspace resource ID do not refer to the same workspace.
+   at Microsoft.DataTransfer.Common.Http.AdvancedHttpClient.<ExecuteAndVerifyResponse>d__72`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.DataTransfer.Common.Http.AdvancedHttpClient.<ExecuteAsyncWithTimeout>d__70`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.DataTransfer.Common.Http.AdvancedHttpClient.<ExecuteAsyncWithTimeout>d__71`2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.DataTransfer.Execution.DatabricksClient.AzureDatabricksClient.<>c__DisplayClass20_0.<<GetClusterAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.DataTransfer.Execution.DatabricksClient.AzureDatabricksClient.<HandleException>d__61`1.MoveNext().
+Specified org ID and workspace resource ID do not refer to the same workspace.
