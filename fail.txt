@@ -31,5 +31,10 @@ https://adb-3673071858246932.12.azuredatabricks.net/browse/folders/4166027217205
 #path
 url - https://adb-3673071858246932.12.azuredatabricks.net/editor/notebooks/4185421345438799?o=3673071858246932
 path - /Workspace/Users/vansh.verma@nestcorporation.org.uk/itrent
+----------------------------------
 
+Update ls_databricks in ADF
+Go to Manage → Linked services → ls_databricks → Edit and update these fields:
+FieldValueDomainhttps://adb-3673071858246932.12.azuredatabricks.netWorkspace resource ID/subscriptions/e55260ce-8396-4664-9b00-9fb5378757e3/resourceGroups/rg-nest-dp-dev-uks-01/providers/Microsoft.Databricks/workspaces/dbw-nest-dp-dev-uks-01AuthenticationMSIExisting cluster ID0512-122439-jtchj7am
+Click Test connection — tell me the result.
 
