@@ -16,3 +16,8 @@ Specified org ID and workspace resource ID do not refer to the same workspace. C
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at Microsoft.DataTransfer.Execution.DatabricksClient.AzureDatabricksClient.<HandleException>d__61`1.MoveNext().
 Specified org ID and workspace resource ID do not refer to the same workspace.
+
+-----------------------
+https://adb-3673071858246932.12.azuredatabricks.net/browse/folders/4166027217205490?o=3673071858246932
+
+/Workspace/Users/vansh.verma@nestcorporation.org.uk
