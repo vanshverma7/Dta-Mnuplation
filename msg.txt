@@ -1,0 +1,9 @@
+"Can you please generate a Databricks personal access token for the workspace dbw-nest-dp-dev-uks-01 (URL: https://adb-3673071858246932.12.azuredatabricks.net) for my user vansh.verma@nestcorporation.org.uk. I need it to connect Azure Data Factory to Databricks for a pipeline I'm building."
+
+Key details to give them:
+
+Workspace: dbw-nest-dp-dev-uks-01
+Workspace URL: https://adb-3673071858246932.12.azuredatabricks.net
+User: vansh.verma@nestcorporation.org.uk
+Expiry: 90 days minimum
+Purpose: ADF to Databricks connection for pipeline development
