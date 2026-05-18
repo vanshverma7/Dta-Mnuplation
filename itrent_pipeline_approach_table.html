@@ -1,0 +1,197 @@
+
+<style>
+  body { font-size: 14px; }
+  .wrap { padding: 1rem 0; }
+  .legend { display: flex; gap: 16px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+  .leg-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-secondary); }
+  .dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .dot-green { background: var(--color-background-success); border: 1px solid var(--color-text-success); }
+  .dot-amber { background: var(--color-background-warning); border: 1px solid var(--color-text-warning); }
+  .dot-red { background: var(--color-background-danger); border: 1px solid var(--color-text-danger); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { 
+    text-align: left; font-weight: 500; font-size: 11px; 
+    color: var(--color-text-secondary); padding: 8px 10px; 
+    border-bottom: 1.5px solid var(--color-border-secondary);
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  tbody tr { border-bottom: 0.5px solid var(--color-border-tertiary); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 9px 10px; vertical-align: middle; line-height: 1.4; }
+  .svc { font-weight: 500; color: var(--color-text-primary); }
+  .sec { font-size: 11px; color: var(--color-text-secondary); }
+  .mono { font-family: var(--font-mono); font-size: 11px; }
+  
+  /* Status badges */
+  .badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+  .b-green { background: var(--color-background-success); color: var(--color-text-success); }
+  .b-amber { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .b-red   { background: var(--color-background-danger);  color: var(--color-text-danger);  }
+
+  .approach { font-size: 12px; color: var(--color-text-secondary); }
+  .arrays { font-size: 11px; font-family: var(--font-mono); color: var(--color-text-secondary); }
+
+  /* Section dividers */
+  .section-hdr td { 
+    background: var(--color-background-secondary); 
+    font-size: 11px; font-weight: 500; 
+    color: var(--color-text-secondary);
+    padding: 5px 10px;
+    letter-spacing: 0.03em;
+  }
+</style>
+
+<div class="wrap">
+  <div class="legend">
+    <div class="leg-item"><div class="dot dot-green"></div> Flat — Copy Activity works as-is</div>
+    <div class="leg-item"><div class="dot dot-amber"></div> Single-level array — Copy Activity works with collectionReference</div>
+    <div class="leg-item"><div class="dot dot-red"></div> Nested arrays — Copy Activity cannot handle, alternative needed</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%">Service</th>
+        <th style="width:14%">Status</th>
+        <th style="width:30%">Array fields</th>
+        <th>Pipeline approach</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- GROUP 1: FLAT -->
+      <tr class="section-hdr"><td colspan="4">GROUP 1 — Flat structure (no arrays)</td></tr>
+
+      <tr>
+        <td><span class="svc">Position Data</span><br><span class="sec">7.3</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Absence Data</span><br><span class="sec">7.4</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Attendance Data</span><br><span class="sec">7.5</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Daily Pattern</span><br><span class="sec">7.6</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">HR Core &amp; Structure (Transfers)</span><br><span class="sec">7.8</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">People Structure</span><br><span class="sec">7.9</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">WMS People</span><br><span class="sec">7.10</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Elite3E (DAC3E)</span><br><span class="sec">7.11</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">WFM Person (Grosvenor)</span><br><span class="sec">7.12</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Requisition Data v1</span><br><span class="sec">7.17</span></td>
+        <td><span class="badge b-green">Flat ✓</span></td>
+        <td><span class="arrays">—</span></td>
+        <td><span class="approach">Existing Copy Activity pipeline, no changes needed</span></td>
+      </tr>
+
+      <!-- GROUP 2: SINGLE-LEVEL ARRAYS -->
+      <tr class="section-hdr"><td colspan="4">GROUP 2 — Single-level arrays (Copy Activity works with collectionReference)</td></tr>
+
+      <tr>
+        <td><span class="svc">HR Core Data</span><br><span class="sec">7.1</span></td>
+        <td><span class="badge b-amber">Array ⚠</span></td>
+        <td><span class="arrays">PositionAddresses[]</span></td>
+        <td><span class="approach">Copy Activity with <span class="mono">collectionReference = $.Person</span>. PositionAddresses sits at one level — each address row per person.</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">HR Core Data &amp; Structure</span><br><span class="sec">7.7</span></td>
+        <td><span class="badge b-amber">Array ⚠</span></td>
+        <td><span class="arrays">PositionAddresses[]</span></td>
+        <td><span class="approach">Same as 7.1 — Copy Activity with collectionReference handles it.</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">WFM Shifts (Grosvenor)</span><br><span class="sec">7.13</span></td>
+        <td><span class="badge b-amber">Array ⚠</span></td>
+        <td><span class="arrays">shift[]</span></td>
+        <td><span class="approach">shift[] is the top-level iterable — use it as collectionReference. One row per shift.</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">User Defined Fields</span><br><span class="sec">7.19</span></td>
+        <td><span class="badge b-amber">Array ⚠</span></td>
+        <td><span class="arrays">udfs[]<br>messages[]</span></td>
+        <td><span class="approach">udfs[] is the main array — use as collectionReference. messages[] is always empty in practice.</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Grade &amp; Payscale Details</span><br><span class="sec">7.20</span></td>
+        <td><span class="badge b-amber">Array ⚠</span></td>
+        <td><span class="arrays">payscale[]</span></td>
+        <td><span class="approach">payscale[] sits inside payscaledetails — use <span class="mono">collectionReference = $.payscaledetails.payscale</span>. One row per pay point.</span></td>
+      </tr>
+
+      <!-- GROUP 3: NESTED ARRAYS - PROBLEMS -->
+      <tr class="section-hdr"><td colspan="4">GROUP 3 — Nested arrays (Copy Activity cannot handle — alternative approach needed)</td></tr>
+
+      <tr>
+        <td><span class="svc">Skills &amp; Qualifications</span><br><span class="sec">7.2 — our current pipeline</span></td>
+        <td><span class="badge b-red">Nested ✗</span></td>
+        <td><span class="arrays">Skills[] inside Person{}<br>Subjects[] inside Qualifications{}</span></td>
+        <td><span class="approach">Copy Activity stuck at [0]. Use Databricks Python to flatten Person → Skills rows.</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Employee Record</span><br><span class="sec">7.14</span></td>
+        <td><span class="badge b-red">Nested ✗</span></td>
+        <td><span class="arrays">costlevel[] in costing{}<br>TermandCondition[] in TermsandConditions{}<br>holidayscheme[] in holidays{}<br>skill[] in skills{}<br>subject[] in qualification{}</span></td>
+        <td><span class="approach">5 separate nested arrays. Same problem as 7.2 — Databricks Python needed.</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Employee Record (date effective)</span><br><span class="sec">7.15</span></td>
+        <td><span class="badge b-red">Nested ✗</span></td>
+        <td><span class="arrays">costlevel[], TermandCondition[]<br>holidayscheme[], skill[], subject[]<br>(same structure as 7.14)</span></td>
+        <td><span class="approach">Identical to 7.14 — same Databricks Python script can be reused.</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Employee Work Schedule</span><br><span class="sec">7.16</span></td>
+        <td><span class="badge b-red">Nested ✗</span></td>
+        <td><span class="arrays">day[] at top level<br>shift[] nested inside each day{}</span></td>
+        <td><span class="approach">shift[] is nested inside day[] — two levels deep. Copy Activity can iterate day[] but cannot also expand shift[]. Databricks Python needed.</span></td>
+      </tr>
+      <tr>
+        <td><span class="svc">Requisition Data v2</span><br><span class="sec">7.18</span></td>
+        <td><span class="badge b-red">Nested ✗</span></td>
+        <td><span class="arrays">requisition[] at top level<br>vacancy[] inside requisition{}<br>vacancyptysrch[] inside requisition{}<br>requisitioncategorytypes[] inside vacancyptysrch{}</span></td>
+        <td><span class="approach">Multiple arrays with nesting 3 levels deep. Databricks Python needed.</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
