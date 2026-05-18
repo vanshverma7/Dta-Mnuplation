@@ -1,0 +1,12 @@
+Subject: iTrent API — quick catch up this week
+
+Hi all,
+
+Putting this in for later this week for a quick catch up around the iTrent data structure.
+
+We're building a pipeline to pull data from iTrent and want to understand how certain fields look in practice — things like whether employees can have multiple skills, shifts, or cost centre splits. Should be a short call, no prep needed from your side.
+
+I'll be sharing a list of fields closer to the time that we'd like to focus on. The iTrent API documentation suggests there are array structures [] nested within certain objects {} — in simple terms, this means a field could hold one record or multiple records. The goal is to confirm whether we'd actually expect any data in those fields at all, and if so, whether they would typically contain one entry or many. This distinction is important as it directly changes how we design the pipeline.
+
+Thanks,
+Vansh
