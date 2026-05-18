@@ -3,3 +3,18 @@ I understanding you are looking at using Claude Code for re-writing Analytics wo
 
 We might end up doing something special and off-system for Nicola if we need to.
 Thanks, Sam
+
+Subject: RE: Claude Code Access
+
+Hi Sam, and welcome Nicola!
+
+Great to hear from you both. To answer your question, the plan is to work with Claude Sonnet 4 and Opus 4.1 — these are available through Microsoft Copilot 365, so if you have a 365 licence, you should be able to access them by raising an IT ticket if you haven't already done so.
+
+This is the version we'll be focusing on for the code conversion workshop, so it would be worth getting that sorted ahead of time.
+
+Separately, we also have access to the enterprise version of GitHub Copilot (currently used through VS Code), which is more advanced and supports a wider range of models including both ChatGPT and Claude. This is particularly useful for development tasks, but does require a separate IT request.
+
+Nicola — I'd love to schedule a quick catch-up to introduce myself properly and walk you through both options so you're set up and ready to go. Happy to find some time that works for you.
+
+Best,
+Vansh
