@@ -1,0 +1,151 @@
+-- =============================================
+-- STEP 1: Insert dataset
+-- =============================================
+INSERT INTO metahub.catalog_dataset
+(source_system_id, target_system_id, layer_id, dataset_name, source_entity_name,
+ target_format, target_path, batch_group, business_key_columns,
+ is_initial_load_required, is_truncate_on_full_load, is_active, load_type_id)
+VALUES
+(
+    (SELECT source_system_id FROM metahub.master_system WHERE system_name = 'itrent'),
+    (SELECT source_system_id FROM metahub.master_system WHERE system_name = 'Landing Zone'),
+    2,
+    'itr_hr_core',
+    'hr_core',
+    'parquet',
+    'vansh-test/itrent/corp/itr_hr_core',
+    'test',
+    'person_id',
+    1, 0, 1,
+    (SELECT load_type_id FROM metahub.master_load_type WHERE load_type_code = 'full')
+);
+
+-- Check dataset_id — replace 75 below with actual value
+SELECT dataset_id, dataset_name
+FROM metahub.catalog_dataset
+WHERE dataset_name = 'itr_hr_core';
+
+-- =============================================
+-- STEP 2: Insert API endpoint
+-- =============================================
+INSERT INTO metahub.catalog_api_endpoint
+(dataset_id, endpoint_name, endpoint_path, http_method,
+ response_root_path, incremental_strategy, is_active)
+VALUES
+(
+    75,
+    'itr_hr_core',
+    '',
+    'GET',
+    '$.itrent.Person',
+    'full',
+    1
+);
+
+-- =============================================
+-- STEP 3: Insert column mappings
+-- Replace 75 with your actual dataset_id
+-- =============================================
+INSERT INTO metahub.catalog_column
+(dataset_id, column_name, column_position, data_type_name,
+ is_primary_key, is_business_key, source_expression, is_nullable)
+VALUES
+-- Core person fields
+(75, 'person_id',                1,  'STRING', 1, 1, '[''PersonID'']',               0),
+(75, 'title',                    2,  'STRING', 0, 0, '[''Title'']',                  1),
+(75, 'initials',                 3,  'STRING', 0, 0, '[''Initials'']',               1),
+(75, 'forename1',                4,  'STRING', 0, 0, '[''Forename1'']',              1),
+(75, 'forename2',                5,  'STRING', 0, 0, '[''Forename2'']',              1),
+(75, 'forename3',                6,  'STRING', 0, 0, '[''Forename3'']',              1),
+(75, 'surname',                  7,  'STRING', 0, 0, '[''Surname'']',                1),
+(75, 'previous_surname',         8,  'STRING', 0, 0, '[''PreviousSurname'']',        1),
+(75, 'preferred_name',           9,  'STRING', 0, 0, '[''PreferredName'']',          1),
+(75, 'preferred_surname',        10, 'STRING', 0, 0, '[''PreferredSurname'']',       1),
+(75, 'formatted_name',           11, 'STRING', 0, 0, '[''FormattedName'']',          1),
+(75, 'student',                  12, 'STRING', 0, 0, '[''Student'']',                1),
+(75, 'birth_date',               13, 'DATE',   0, 0, '[''BirthDate'']',              1),
+(75, 'marital_status',           14, 'STRING', 0, 0, '[''MaritalStatus'']',          1),
+(75, 'gender',                   15, 'STRING', 0, 0, '[''Gender'']',                 1),
+(75, 'ni_number',                16, 'STRING', 0, 0, '[''NInumber'']',               1),
+(75, 'address_line1',            17, 'STRING', 0, 0, '[''AddressLine1'']',           1),
+(75, 'address_line2',            18, 'STRING', 0, 0, '[''AddressLine2'']',           1),
+(75, 'address_line3',            19, 'STRING', 0, 0, '[''AddressLine3'']',           1),
+(75, 'address_line4',            20, 'STRING', 0, 0, '[''AddressLine4'']',           1),
+(75, 'address_line5',            21, 'STRING', 0, 0, '[''AddressLine5'']',           1),
+(75, 'address_line6',            22, 'STRING', 0, 0, '[''AddressLine6'']',           1),
+(75, 'country',                  23, 'STRING', 0, 0, '[''Country'']',                1),
+(75, 'organisation_start_date',  24, 'DATE',   0, 0, '[''OrganisationStartDate'']',  1),
+(75, 'organisation_end_date',    25, 'DATE',   0, 0, '[''OrganisationEndDate'']',    1),
+-- Next of Kin
+(75, 'nok_name',                 26, 'STRING', 0, 0, '[''NextOfKin''][''NOKName'']',          1),
+(75, 'nok_relationship',         27, 'STRING', 0, 0, '[''NextOfKin''][''NOKRelationship'']',  1),
+(75, 'nok_address_line1',        28, 'STRING', 0, 0, '[''NextOfKin''][''NOKAddressLine1'']',  1),
+(75, 'nok_address_line2',        29, 'STRING', 0, 0, '[''NextOfKin''][''NOKAddressLine2'']',  1),
+(75, 'nok_address_line3',        30, 'STRING', 0, 0, '[''NextOfKin''][''NOKAddressLine3'']',  1),
+(75, 'nok_address_line4',        31, 'STRING', 0, 0, '[''NextOfKin''][''NOKAddressLine4'']',  1),
+(75, 'nok_address_line5',        32, 'STRING', 0, 0, '[''NextOfKin''][''NOKAddressLine5'']',  1),
+(75, 'nok_address_line6',        33, 'STRING', 0, 0, '[''NextOfKin''][''NOKAddressLine6'']',  1),
+(75, 'nok_country',              34, 'STRING', 0, 0, '[''NextOfKin''][''NOKCountry'']',       1),
+-- Emergency Contact
+(75, 'ec_name',                  35, 'STRING', 0, 0, '[''EmergencyContact''][''ECName'']',           1),
+(75, 'ec_primary_contact',       36, 'STRING', 0, 0, '[''EmergencyContact''][''ECPrimaryContact'']', 1),
+(75, 'ec_contact',               37, 'STRING', 0, 0, '[''EmergencyContact''][''ECContact'']',        1),
+(75, 'ec_contact_email',         38, 'STRING', 0, 0, '[''EmergencyContact''][''ECContactEmail'']',   1),
+(75, 'ec_relationship',          39, 'STRING', 0, 0, '[''EmergencyContact''][''ECRelationship'']',   1),
+(75, 'ec_address_line1',         40, 'STRING', 0, 0, '[''EmergencyContact''][''ECAddressLine1'']',   1),
+(75, 'ec_address_line2',         41, 'STRING', 0, 0, '[''EmergencyContact''][''ECAddressLine2'']',   1),
+(75, 'ec_address_line3',         42, 'STRING', 0, 0, '[''EmergencyContact''][''ECAddressLine3'']',   1),
+(75, 'ec_address_line4',         43, 'STRING', 0, 0, '[''EmergencyContact''][''ECAddressLine4'']',   1),
+(75, 'ec_address_line5',         44, 'STRING', 0, 0, '[''EmergencyContact''][''ECAddressLine5'']',   1),
+(75, 'ec_address_line6',         45, 'STRING', 0, 0, '[''EmergencyContact''][''ECAddressLine6'']',   1),
+(75, 'ec_country',               46, 'STRING', 0, 0, '[''EmergencyContact''][''ECCountry'']',        1),
+-- Position
+(75, 'position_id',              47, 'STRING', 0, 0, '[''Position''][''PositionID'']',              1),
+(75, 'occupancy_id',             48, 'STRING', 0, 0, '[''Position''][''OccupancyID'']',             1),
+(75, 'position_name',            49, 'STRING', 0, 0, '[''Position''][''PositionName'']',            1),
+(75, 'occupancy_start_date',     50, 'DATE',   0, 0, '[''Position''][''OccupancyStartDate'']',      1),
+(75, 'occupancy_end_date',       51, 'DATE',   0, 0, '[''Position''][''OccupancyEndDate'']',        1),
+(75, 'exp_occupancy_end_date',   52, 'STRING', 0, 0, '[''Position''][''ExpOccupancyEndDate'']',     1),
+(75, 'location',                 53, 'STRING', 0, 0, '[''Position''][''Location'']',                1),
+(75, 'structure_group1',         54, 'STRING', 0, 0, '[''Position''][''StructureGroup1'']',         1),
+(75, 'structure_group2',         55, 'STRING', 0, 0, '[''Position''][''StructureGroup2'']',         1),
+(75, 'job_family',               56, 'STRING', 0, 0, '[''Position''][''JobFamily'']',               1),
+(75, 'reporting_position_name',  57, 'STRING', 0, 0, '[''Position''][''ReportingPositionName'']',   1),
+(75, 'reporting_position_id',    58, 'STRING', 0, 0, '[''Position''][''ReportingPositionID'']',     1),
+(75, 'reporting_occupant_name',  59, 'STRING', 0, 0, '[''Position''][''ReportingOccupantName'']',   1),
+(75, 'reporting_occupant_id',    60, 'STRING', 0, 0, '[''Position''][''ReportingOccupantID'']',     1),
+(75, 'reporting_occupant_email', 61, 'STRING', 0, 0, '[''Position''][''ReportingOccupantEmail'']',  1),
+(75, 'reporting_unit',           62, 'STRING', 0, 0, '[''Position''][''ReportingUnit'']',            1),
+(75, 'reporting_unit_id',        63, 'STRING', 0, 0, '[''Position''][''ReportingUnitID'']',          1),
+(75, 'reporting_unit_loc',       64, 'STRING', 0, 0, '[''Position''][''ReportingUnitLoc'']',         1),
+(75, 'reporting_unit_group1',    65, 'STRING', 0, 0, '[''Position''][''ReportingUnitGroup1'']',      1),
+(75, 'reporting_unit_group2',    66, 'STRING', 0, 0, '[''Position''][''ReportingUnitGroup2'']',      1),
+(75, 'contact_type',             67, 'STRING', 0, 0, '[''Position''][''PositionContacts''][''ContactType'']', 1),
+(75, 'contact_dets',             68, 'STRING', 0, 0, '[''Position''][''PositionContacts''][''ContactDets'']', 1),
+(75, 'posn_address_line1',       69, 'STRING', 0, 0, '[''Position''][''PositionAddresses''][0][''PosnAddressLine1'']', 1),
+(75, 'posn_address_line2',       70, 'STRING', 0, 0, '[''Position''][''PositionAddresses''][0][''PosnAddressLine2'']', 1),
+(75, 'posn_address_line3',       71, 'STRING', 0, 0, '[''Position''][''PositionAddresses''][0][''PosnAddressLine3'']', 1),
+(75, 'posn_address_line4',       72, 'STRING', 0, 0, '[''Position''][''PositionAddresses''][0][''PosnAddressLine4'']', 1),
+(75, 'posn_address_line5',       73, 'STRING', 0, 0, '[''Position''][''PositionAddresses''][0][''PosnAddressLine5'']', 1),
+(75, 'posn_address_line6',       74, 'STRING', 0, 0, '[''Position''][''PositionAddresses''][0][''PosnAddressLine6'']', 1),
+(75, 'posn_country',             75, 'STRING', 0, 0, '[''Position''][''PositionAddresses''][0][''PosnCountry'']',      1),
+(75, 'category',                 76, 'STRING', 0, 0, '[''Position''][''Category'']',               1),
+(75, 'reporting_post',           77, 'STRING', 0, 0, '[''Position''][''ReportingPost'']',           1),
+(75, 'reporting_post_id',        78, 'STRING', 0, 0, '[''Position''][''ReportingPostID'']',         1),
+(75, 'reporting_post_loc',       79, 'STRING', 0, 0, '[''Position''][''ReportingPostLoc'']',        1),
+(75, 'reporting_post_group1',    80, 'STRING', 0, 0, '[''Position''][''ReportingPostGroup1'']',     1),
+(75, 'reporting_post_group2',    81, 'STRING', 0, 0, '[''Position''][''ReportingPostGroup2'']',     1),
+-- Other Address
+(75, 'oth_addr_address_type',    82, 'STRING', 0, 0, '[''OtherAddress''][''OthAddrAddressType'']',  1),
+(75, 'oth_addr_address_line1',   83, 'STRING', 0, 0, '[''OtherAddress''][''OthAddrAddressLine1'']', 1),
+(75, 'oth_addr_address_line2',   84, 'STRING', 0, 0, '[''OtherAddress''][''OthAddrAddressLine2'']', 1),
+(75, 'oth_addr_address_line3',   85, 'STRING', 0, 0, '[''OtherAddress''][''OthAddrAddressLine3'']', 1),
+(75, 'oth_addr_address_line4',   86, 'STRING', 0, 0, '[''OtherAddress''][''OthAddrAddressLine4'']', 1),
+(75, 'oth_addr_address_line5',   87, 'STRING', 0, 0, '[''OtherAddress''][''OthAddrAddressLine5'']', 1),
+(75, 'oth_addr_address_line6',   88, 'STRING', 0, 0, '[''OtherAddress''][''OthAddrAddressLine6'']', 1),
+(75, 'oth_addr_country',         89, 'STRING', 0, 0, '[''OtherAddress''][''OthAddrCountry'']',      1);
+
+
+SELECT dataset_id, dataset_name
+FROM metahub.catalog_dataset
+WHERE dataset_name = 'itr_hr_core';
