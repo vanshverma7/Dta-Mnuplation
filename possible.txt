@@ -21,3 +21,36 @@ For BI-owned outputs (e.g. charging/AUM summaries), these are handled by the BI 
 Happy to align on this before the call.
 Thanks,
 Vansh
+
+
+---------------
+
+Subject: RE: PBC no 96 - membership numbers and average contributions per member
+
+Hi Marcus,
+
+Thanks for arranging the call — happy to walk KPMG through the process.
+
+Just to clarify a few things ahead of the call:
+
+Membership numbers are obtained from REP 265 and average contributions from REP 151B. From what I understand from the BI team:
+
+- REP 151B is used for MI Data Finance and Accounts BAU, which is a summary of various statistics including highest contribution in the last month, number of employers who completed their first scheduled contribution, and more — this is handled by the BI team.
+- REP 265 is used for the Charging Report, which goes to Robin Lewis and covers how much TCS is to charge us, including calculations of the total number of members — this is also handled by the BI team.
+
+If either of these falls within the scope of the call, it would need to be tackled by a member of the BI team.
+
+Regarding the walkthrough with KPMG — would part of the process involve showing how we log into the systems (Business Objects / SFTP), or would it focus purely on how we obtain the files?
+
+Following the downloading of the necessary files, the data goes through an R script which merges all the files together and performs transformations (e.g. column name changes) before being converted into an R data format file. This file is then saved to the O: drive and made available for use by the Analytics team and wider NEST.
+
+As we don't have a secondary source to cross-verify the numbers, we validate them by comparing the summary with the previous month's summary using an R script, which can be demonstrated during the walkthrough. We use the output of this script to check for any anomalies and spikes in numbers — this is our process for verifying the figures given that we don't have a formal external source to check against.
+
+In addition to REP 265 and REP 151B, there are other reports extracted as well — for example, the MFR report, which to my understanding delivers AUM for each month to the Finance team. No major transformations are done on that file; the BI team accesses the MFR.rdata file created by the data team and uses it to produce a summary before it is sent to Finance — again, this is done by the BI team.
+
+On the scope of the call — would it be required to run through all of the reports that Finance uses, or would we restrict it to REP 265 and REP 151B? If we need to cover the transformations and processing that take place between data extraction and the point the file reaches the Finance team, that would fall under the BI team's part of the process, and we would need to involve someone from there (I believe that would be Harsh / Clothilde) to walk through that.
+
+Please let me know and I'll make sure the right people are available for the call.
+
+Many thanks,
+Vansh
