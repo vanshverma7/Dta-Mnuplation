@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8"/>
+  <head>
+    <title>Page Not Found</title>
+  </head>
+  <body bgcolor='#F2F5F8'>
+    <h1>Page Not Found</h1>
+    This page cannot be displayed
+  </body>
+</html>
