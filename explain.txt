@@ -5,3 +5,6 @@ Murat flagged that we should have a clearer structure around how my tasks are sp
 As we discussed previously, I've had ongoing communication challenges with Ike. After two weeks of trying to work through it, things are still difficult — he tends to defer to being occupied with data ingestion or JDT work.
 
 Murat and I have agreed to set up 2–3 weekly syncs between me and Ike to keep him in the loop on development. However, my concern is that these are turning into one-sided explanation sessions rather than collaborative development discussions. We're currently adapting and building out a new structure for P&C, and while I don't mind explaining things, there's been little to no progress from Ike's side after our sessions — which is making it hard to move forward effectively.
+
+When a file is sent from one place to another, sometimes it can get slightly damaged or altered along the way.
+A checksum is just a way of checking that what arrived is exactly the same as what was sent. Before sending, a number is calculated from the file. After receiving, the same calculation is done again. If both numbers are the same, the file is fine. If not, something went wrong.
