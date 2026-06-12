@@ -1,0 +1,19 @@
+Hi team,
+
+I'm reaching out regarding Azure AD group management in the context of our **National Data Platform (NDP)** initiative. Currently, I can see we have approximately **2,300 groups** across the tenant, and I'd like to work with IT to identify and document those specifically scoped to NDP workloads.
+
+Having a clear picture of group-to-resource mappings is becoming increasingly important as NDP grows, particularly around:
+
+- **RBAC governance** — understanding which Azure AD groups have access to which specific resources (Storage Accounts, ADF instances, Databricks workspaces, etc.)
+- **Azure Key Vault** — as we begin storing more secrets and keys here, it's important we know exactly which groups have access, so we can link that back to a documented business justification for each
+- **Managed Identity & Service Principal alignment** — confirming that pipeline identities are correctly bound to the relevant groups
+- **Future scalability** — as NDP onboards new data domains and consumers, we need a clean group structure to extend permissions without proliferation
+
+Could you help us with the following:
+1. A filtered list of Azure AD groups related to NDP (by naming convention or tag)
+2. A mapping of those groups to the resources they have access to (Storage, ADF, Key Vault, etc.)
+3. Any existing documentation on the current group provisioning or access request process for NDP resources
+
+This will give us the clarity we need to manage access effectively and ensure every permission can be tied to a clear business case as the platform scales. Happy to jump on a call to discuss further.
+
+Thanks
