@@ -1,0 +1,29 @@
+Hi everyone 👋
+
+As discussed in yesterday's meeting, [Head of Department's name] is looking to build a business case for a potential new Cloud Engineer role within our team — someone with IT-level permissions who could help us unblock technical issues faster and keep our projects moving.
+
+Following this morning's standup, I've been asked to gather everyone's input and put together a summary to send across to him.
+
+Could you please drop me a message (or reply here) with:
+- Any IT blockers you've experienced that have impacted your work or projects
+- How you think this role could have helped in those situations
+- Any other thoughts on what you'd want this person to be able to do
+
+No need for anything formal — bullet points are absolutely fine. I'll collate everything and write it up before sending it on.
+
+Please try to get your thoughts to me by [deadline if you have one]. The more input we can give, the stronger the case will be!
+
+Thanks all 🙏
+
+------------------------------
+Hi all,
+
+As discussed yesterday, I've been asked to gather everyone's input on the proposed Cloud Engineer role so I can put together a summary for [Head of Department's name].
+
+Please send me:
+- IT blockers you've faced on your projects
+- How this role could have helped
+
+Keep it brief, bullet points are fine. Aiming to send it across by [date].
+
+Thanks!
