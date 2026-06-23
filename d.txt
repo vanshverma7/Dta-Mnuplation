@@ -1,0 +1,8 @@
+Hi All,
+Do you have a timeline for this?  Des is off until 2nd week in July
+
+we may be able to run some sort of dump of the permissions for every object in the subscriptions - Is that what you are after?
+We can take a look and see how simple that would be , if not simple may need to log a ticket with Simpsons and\or expo to request them to do it.
+
+I would have thought it was in the NDP LLD but i dont see it in there from a quick look.
+Richard
